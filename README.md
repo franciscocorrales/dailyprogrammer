@@ -1,6 +1,6 @@
 # dailyprogrammer
 Reddit dailyprogrammer challenge solutions
 
-More:
+More Information:
 https://www.reddit.com/r/dailyprogrammer
 
