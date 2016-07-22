@@ -1,4 +1,21 @@
 
 /*
 https://www.reddit.com/r/dailyprogrammer/comments/4tetif
+
+Example output:
+
+R E K T K E R E K T K E R E K T K E R E K T 
+E     K     E     K     E     K     E     K 
+K     E     K     E     K     E     K     E 
+T K E R E K T K E R E K T K E R E K T K E R 
+K     E     K     E     K     E     K     E 
+E     K     E     K     E     K     E     K 
+R E K T K E R E K T K E R E K T K E R E K T 
+E     K     E     K     E     K     E     K 
+K     E     K     E     K     E     K     E 
+T K E R E K T K E R E K T K E R E K T K E R 
+K     E     K     E     K     E     K     E 
+E     K     E     K     E     K     E     K 
+R E K T K E R E K T K E R E K T K E R E K T 
+
 */
