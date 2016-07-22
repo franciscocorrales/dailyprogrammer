@@ -1,0 +1,71 @@
+
+/*
+https://www.reddit.com/r/dailyprogrammer/comments/4savyr/
+*/
+
+SYMBOLLENGTH = 2;
+SYMBOLREPEATLETTER = 2;
+
+class Element{
+
+	constructor(element, symbol){
+  	if(this.hasValidFormat(element.toLowerCase(),symbol.toLowerCase())){
+    	this.name = element;
+      this.symbol = symbol;
+    }   
+  }
+  
+  hasValidFormat(element, symbol){    
+  	return this.checkLength(symbol) && 
+      this.secondLetterMustAppear(element, symbol) &&  
+      this.lettersAppearInOrder(element, symbol) &&
+      this.sameLetterSymbolTwiceLetterInElement(element, symbol);
+  }
+  
+  checkLength(symbol){
+    return symbol.length == SYMBOLLENGTH;
+  }
+  
+  secondLetterMustAppear(element, symbol){
+    var secondLetter = symbol.charAt(1);
+    return element.indexOf(secondLetter) > -1;
+  }
+  
+  lettersAppearInOrder(element, symbol){
+    var firstLetter = symbol.charAt(0);
+    var secondLetter = symbol.charAt(1);
+    return element.indexOf(firstLetter) < element.lastIndexOf(secondLetter);
+  }
+  
+  sameLetterSymbolTwiceLetterInElement(element, symbol){
+    if(this.isSymbolSameLetter(symbol)){
+      return this.countSubstringOccurrences(element, symbol.charAt(0)) == SYMBOLREPEATLETTER;
+    }
+    else{
+      return true;
+    }
+  }
+  
+  isSymbolSameLetter(symbol){
+    return symbol.charAt(0) ==  symbol.charAt(1);
+  }
+  
+  countSubstringOccurrences(string, substring){
+    return string.split(substring).length - 1;
+  }
+
+} 
+
+
+element = new Element("Spenglerium","Ee");
+console.debug(element); 
+element = new Element("Zeddemorium","Zr");
+console.debug(element); 
+element = new Element("Venkmine","Kn");
+console.debug(element);
+element = new Element("Stantzon","Zt");
+console.debug(element);
+element = new Element("Melintzum","Nn");
+console.debug(element); 
+element = new Element("Tullium","Ty");
+console.debug(element);
