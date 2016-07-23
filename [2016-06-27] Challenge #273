@@ -1,0 +1,101 @@
+/*
+https://www.reddit.com/r/dailyprogrammer/comments/4q35ip
+
+*/
+
+
+class Converter{
+  
+  construct(){
+    this.validUnits = ["f","c","k","r","d"];
+  }
+  
+  convert(input){
+    if(this.isValidInput(input)){
+      var quantity = this.getQuantity(input);
+      var from = this.getFromUnit(input);
+      var to = this.getToUnit(input);
+      
+      return this.convertFunction(quantity, from, to);
+    }
+  }
+  
+  isValidInput(userInput){
+    return true;
+  }
+  
+  getQuantity(string){
+    var onlyNumberAndDots = string.replace(/[^\d.-]/g, '');
+    return Number(onlyNumberAndDots);
+  }
+  
+  getFromUnit(string){
+    return string.slice(string.length-2,string.length-1); 
+  }
+  
+  getToUnit(string){ 
+    return string.substr(string.length-1);
+  }
+  
+  convertFunction(quantity, fromUnit, toUnit){
+    if("f" == fromUnit){
+      if("c" == toUnit){
+        return this.f2c(quantity);
+      }
+    }
+    else if("c" == fromUnit){
+      if("f" == toUnit){
+        return this.c2f(quantity);
+      }
+    }
+    else if("k" == fromUnit){
+      
+    }
+  }
+  
+  c2f(c){
+    return c*1.8+32;
+  }
+  c2k(c){
+    return c+273.15;
+  }
+  f2c(f){
+    return (f-32)*5/9;
+  }
+  f2k(f){
+    return (f+459.67)*5/9;
+  }
+  k2c(k){
+    return k-273.15;
+  }
+  k2f(k){
+    return k*9/5-459.67;
+  }
+  d2r(d){
+    return  (Math.PI/180)*d;
+  }
+  r2d(r){
+    return r*(180/Math.PI);
+  }
+}
+
+class Celcius{
+  
+}
+class Fahrenheit{
+  
+}
+class Kelvin{
+  
+}
+
+var converter = new Converter();
+
+console.log("212fc: " + converter.convert("212fc"));
+console.log("70cf: " + converter.convert("70cf"));
+console.log("100cr: " + converter.convert("100cr"));
+console.log("315.15kc: " + converter.convert("315.15kc"));
+
+
+
+
