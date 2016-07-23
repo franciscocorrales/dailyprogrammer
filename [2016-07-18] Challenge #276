@@ -20,3 +20,62 @@ E     K     E     K     E     K     E     K
 R E K T K E R E K T K E R E K T K E R E K T 
 
 */
+
+
+
+
+
+class Rekt{
+  
+  constructor(word, width, height){
+    if(this.areParametersValid(word, width, height)){
+      this.word = word;
+      this.width = width;
+      this.height = height;
+      this.drawing = "";
+      this.neededRows = 0;
+      this.neededColumns = 0;
+      this.setRowsColumns();
+    }
+  }
+  
+  areParametersValid(word, width, height){
+    return width > 0 && height > 0 && this.isLengthEven(word);
+  }
+  
+  isLengthEven(string){
+    return ! (string.length % 2);
+  }
+   
+  /*
+  In every even repetion we have 2 characters: the first and the last char of the string.
+  That's why charRecicle = 2;
+  */
+  setRowsColumns(){
+    var charRecicle = 2;
+    var odds = this.howManyOddsIn(this.height);
+    var evens = this.howManyEvensIn(this.height);
+    this.neededRows =  (odds * this.word.length )+ (evens * (this.word.length - charRecicle));
+    odds = this.howManyOddsIn(this.width);
+    evens = this.howManyEvensIn(this.width);
+    this.neededColumns =  (odds * this.word.length )+ (evens * (this.word.length - charRecicle))
+  }
+  
+  howManyOddsIn(number){
+    Math.floor(number / 2);
+  }
+  howManyEvensIn(number){
+    Math.ceil(number / 2);
+  }
+  
+  draw(){
+    console.log("\n" + this.drawing + "\n");
+  }
+}
+
+var rekt = new Rekt("REKT",7,4);
+rekt.draw();
+console.debug(rekt);
+var rekt2 = new Rekt("REKT",1,2);
+rekt2.draw();
+console.debug(rekt2);
